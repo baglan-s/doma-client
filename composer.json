@@ -1,0 +1,21 @@
+{
+    "name": "baglan-s/doma",
+    "description": "PHP client for Doma.ai",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BaglanS\\Doma\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Baglan Sariyev",
+            "email": "baglansariev@mail.ru"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}
