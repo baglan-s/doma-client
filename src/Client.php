@@ -97,7 +97,7 @@ class Client
             'response_type' => 'code',
         ]);
 
-        return $this->config->getOidcAuthEndpoint() . $params;
+        return $this->config->getOidcAuthEndpoint() . '?' . $params;
     }
 
     /**

@@ -5,7 +5,7 @@ namespace BaglanS\Doma;
 use BaglanS\Doma\Client;
 use BaglanS\Doma\Helpers\GraphqlHelper;
 
-class Serivce
+class Service
 {
     /**
      * @var Client
@@ -15,6 +15,14 @@ class Serivce
     public function __construct(Client $client)
     {
         $this->client = $client;
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
     }
 
     
