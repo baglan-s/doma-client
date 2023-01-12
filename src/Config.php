@@ -123,7 +123,7 @@ class Config
      */
     public function getOidcAuthEndpoint(): string
     {
-        return $this->getOidcEndpoint() . 'auth/';
+        return $this->getOidcEndpoint() . 'auth';
     }
 
     /**
@@ -131,7 +131,7 @@ class Config
      */
     public function getOidcTokenEndpoint(): string
     {
-        return $this->getOidcEndpoint() . 'token/';
+        return $this->getOidcEndpoint() . 'token';
     }
 
     /**
