@@ -72,7 +72,7 @@ class Client
      */
     public function getRefreshToken(): string
     {
-        return $this->accessRefreshToken;
+        return $this->refreshToken;
     }
 
     /**
@@ -173,7 +173,7 @@ class Client
     public function fetchTokenByCode(string $code): array
     {
         try {
-            $response = $this->client->post($this->config->getOidcTokenEndpoint(), [
+            $response = $this->httpClient->post($this->config->getOidcTokenEndpoint(), [
                 'headers' => [
                     'Content-Type' => 'application/x-www-form-urlencoded',
                     'Authorization' => $this->getAuthorizationBasicToken()
