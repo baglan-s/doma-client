@@ -12,6 +12,9 @@ class GraphqlHelper
                     id 
                     name
                     type
+                    phone
+                    email
+                    isAdmin
                 }
             }
         GRAPHQL;
