@@ -170,6 +170,11 @@ class Client
         $this->accessToken = $idToken;
     }
 
+    /**
+     * @param string $code
+     * @return array
+     */
+
     public function fetchTokenByCode(string $code): array
     {
         try {
@@ -190,5 +195,24 @@ class Client
         }
 
         return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * @param array $tokenData
+     * @return void
+     */
+    public function setAllTokens(array $tokenData): void
+    {
+        if (isset($tokenData['access_token'])) {
+            $this->setAccessToken($tokenData['access_token']);
+        }
+
+        if (isset($tokenData['id_token'])) {
+            $this->setIdToken($tokenData['id_token']);
+        }
+
+        if (isset($tokenData['refresh_token'])) {
+            $this->setRefreshToken($tokenData['refresh_token']);
+        }
     }
 }
