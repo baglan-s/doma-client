@@ -39,7 +39,10 @@ class Client
     public function __construct(Config $config)
     {
         $this->config = $config;
-        $this->httpClient = new HttpClient;
+        $this->httpClient = new HttpClient([
+            'base_uri' => $this->config->getApiEndpoint(),
+            'headers' => ['Content-Type' => 'application/json']
+        ]);
         $this->config->setState(bin2hex(random_bytes(5)));
     }
 

@@ -115,7 +115,7 @@ class Config
      */
     public function getApiEndpoint(): string
     {
-        return "$this->domain/api/";
+        return "$this->domain/admin/api/";
     }
 
     /**
