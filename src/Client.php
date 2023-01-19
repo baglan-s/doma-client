@@ -158,7 +158,7 @@ class Client
      */
     public function setRefreshToken(string $refreshToken): void
     {
-        $this->accessToken = $refreshToken;
+        $this->refreshToken = $refreshToken;
     }
 
     /**
@@ -167,7 +167,7 @@ class Client
      */
     public function setIdToken(string $idToken): void
     {
-        $this->accessToken = $idToken;
+        $this->idToken = $idToken;
     }
 
     /**
