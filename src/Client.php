@@ -120,7 +120,7 @@ class Client
             ]);
 
         } catch (\Exception $e) {
-            return [];
+            throw new \Exception($e->getMessage());
         }
 
         return json_decode($response->getBody()->getContents(), true);
