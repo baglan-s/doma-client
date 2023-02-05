@@ -19,4 +19,40 @@ class GraphqlHelper
             }
         GRAPHQL;
     }
+
+    public static function getAllUsersQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: UserWhereInput) {
+                allUsers (where: $where) {
+                    id
+                    name
+                    type
+                    phone
+                    email
+                    isAdmin
+                    createdAt
+                    updatedAt
+                }
+            }
+        GRAPHQL;
+
+    }
+
+    public static function getAllOrganizationsQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: OrganizationWhereInput) {
+                allOrganizations (where: $where) {
+                    id
+                    name
+                    tin
+                    description
+                    createdAt
+                    updatedAt
+                }
+            }
+        GRAPHQL;
+
+    }
 }

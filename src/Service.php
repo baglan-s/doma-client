@@ -12,6 +12,8 @@ class Service
      */
     protected $client;
 
+    protected $modelNamespace = '\BaglanS\Doma\Models\\';
+
     public function __construct(Client $client)
     {
         $this->client = $client;
@@ -25,5 +27,10 @@ class Service
         return $this->client;
     }
 
-    
+    public function getModel($modelName)
+    {
+        $model = $this->modelNamespace . ucfirst($modelName);
+
+        return new $model($this);
+    }
 }
