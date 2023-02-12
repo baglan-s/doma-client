@@ -63,8 +63,17 @@ class GraphqlHelper
                 allProperties(where: $where) {
                     id
                     name
-                    tin
-                    description
+                    address
+                    type
+                    unitsCount
+                    ticketsCount
+                    updatedAt
+                    ticketsInWork
+                    ticketsClosed
+                    ticketsDeferred
+                    isApproved
+                    yearOfConstruction
+                    area
                     createdAt
                     updatedAt
                 }
