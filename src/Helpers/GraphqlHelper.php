@@ -55,4 +55,21 @@ class GraphqlHelper
         GRAPHQL;
 
     }
+
+    public static function getAllPropertiesQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: PropertyWhereInput) {
+                allProperties(where: $where) {
+                    id
+                    name
+                    tin
+                    description
+                    createdAt
+                    updatedAt
+                }
+            }
+        GRAPHQL;
+
+    }
 }
