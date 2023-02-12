@@ -76,6 +76,14 @@ class GraphqlHelper
                     area
                     createdAt
                     updatedAt
+                    organization {
+                        id
+                        name
+                        tin
+                        description
+                        createdAt
+                        updatedAt
+                    }
                 }
             }
         GRAPHQL;
