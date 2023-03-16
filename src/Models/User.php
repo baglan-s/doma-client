@@ -3,7 +3,7 @@
 namespace BaglanS\Doma\Models;
 
 use BaglanS\Doma\Models\Model;
-use BaglanS\Doma\Helpers\GraphqlHelper;
+use BaglanS\Doma\Helpers\Queries\UserQuery;
 
 class User extends Model
 {
@@ -14,7 +14,7 @@ class User extends Model
 
     public function getUsers(array $filter = [])
     {
-        $response = $this->sendQuery(GraphQLHelper::getAllUsersQuery(), $filter);
+        $response = $this->sendQuery(UserQuery::getAllUsersQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
