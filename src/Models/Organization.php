@@ -3,7 +3,7 @@
 namespace BaglanS\Doma\Models;
 
 use BaglanS\Doma\Models\Model;
-use BaglanS\Doma\Helpers\GraphqlHelper;
+use BaglanS\Doma\Helpers\Queries\OrganizationQuery;
 
 class Organization extends Model
 {
@@ -14,7 +14,7 @@ class Organization extends Model
 
     public function getOrganizations(array $filter = [])
     {
-        $response = $this->sendQuery(GraphQLHelper::getAllOrganizationsQuery(), $filter);
+        $response = $this->sendQuery(OrganizationQuery::getAllOrganizationsQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
