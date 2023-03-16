@@ -4,7 +4,7 @@ namespace BaglanS\Doma;
 
 use GuzzleHttp\Client as HttpClient;
 use BaglanS\Doma\Config;
-use BaglanS\Doma\Helpers\GraphqlHelper;
+use BaglanS\Doma\Helpers\Queries\UserQuery;
 
 class Client
 {
@@ -119,7 +119,7 @@ class Client
         try {
             $response = $this->httpClient->post('', [
                 'headers' => ['Authorization' => 'Bearer ' . $this->getAccessToken()],
-                'json' => ['query' => GraphQLHelper::authenticatedUserQuery()]
+                'json' => ['query' => UserQuery::authenticatedUserQuery()]
             ]);
 
         } catch (\Exception $e) {
