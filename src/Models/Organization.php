@@ -18,4 +18,11 @@ class Organization extends Model
 
         return json_decode($response->getBody()->getContents(), true);
     }
+
+    public function getContacts(array $filter = [])
+    {
+        $response = $this->sendQuery(OrganizationQuery::getAllContactsQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }
