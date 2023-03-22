@@ -18,4 +18,11 @@ class User extends Model
 
         return json_decode($response->getBody()->getContents(), true);
     }
+
+    public function getResidents(array $filter = [])
+    {
+        $response = $this->sendQuery(UserQuery::allResidentsQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }

@@ -9,7 +9,7 @@ class UserQuery
         return <<<GRAPHQL
             query {
                 authenticatedUser {
-                    id 
+                    id
                     name
                     type
                     phone
@@ -33,6 +33,24 @@ class UserQuery
                     isAdmin
                     createdAt
                     updatedAt
+                }
+            }
+        GRAPHQL;
+    }
+
+    public static function allResidentsQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: ResidentWhereInput) {
+                allResidents (where: $where) {
+                    id
+                    residentProperty {
+                      name
+                      address
+                    }
+                    unitName
+                    unitType
+                    address
                 }
             }
         GRAPHQL;

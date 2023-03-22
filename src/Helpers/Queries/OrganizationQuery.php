@@ -19,4 +19,24 @@ class OrganizationQuery
             }
         GRAPHQL;
     }
+
+    public static function getAllContactsQuery()
+    {
+        return <<<'GRAPHQL'
+            query () {
+                allContacts () {
+                    id
+                    name
+                    phone
+                    email
+                    property {
+                      id
+                      address
+                    }
+                    unitName
+                    unitType
+                }
+            }
+        GRAPHQL;
+    }
 }
