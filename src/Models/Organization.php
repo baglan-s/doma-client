@@ -14,14 +14,14 @@ class Organization extends Model
 
     public function getOrganizations(array $filter = [])
     {
-        $response = $this->sendQuery(OrganizationQuery::getAllOrganizationsQuery(), $filter);
+        $response = $this->sendQuery(OrganizationQuery::allOrganizationsQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
 
     public function getContacts(array $filter = [])
     {
-        $response = $this->sendQuery(OrganizationQuery::getAllContactsQuery(), $filter);
+        $response = $this->sendQuery(OrganizationQuery::allContactsQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
