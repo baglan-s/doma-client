@@ -8,7 +8,7 @@ class Meter extends Model
 {
     public function getMeters(array $filter = [])
     {
-        $response = $this->sendQuery(MeterQuery::getAllMetersQuery(), $filter);
+        $response = $this->sendQuery(MeterQuery::allMetersQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }

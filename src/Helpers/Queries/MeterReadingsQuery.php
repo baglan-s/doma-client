@@ -4,7 +4,7 @@ namespace BaglanS\Doma\Helpers\Queries;
 
 class MeterReadingsQuery
 {
-    public static function getAllMeterReadingsQuery()
+    public static function allMeterReadingsQuery()
     {
         return <<<'GRAPHQL'
             query ($where: OrganizationWhereInput) {

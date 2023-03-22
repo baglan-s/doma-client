@@ -21,7 +21,7 @@ class User extends Model
 
     public function getResidents(array $filter = [])
     {
-        $response = $this->sendQuery(UserQuery::getAllResidentsQuery(), $filter);
+        $response = $this->sendQuery(UserQuery::allResidentsQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }

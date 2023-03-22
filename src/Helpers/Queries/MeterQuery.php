@@ -4,7 +4,7 @@ namespace BaglanS\Doma\Helpers\Queries;
 
 class MeterQuery
 {
-    public static function getAllMetersQuery()
+    public static function allMetersQuery()
     {
         return <<<'GRAPHQL'
             query ($where: OrganizationWhereInput) {
@@ -17,10 +17,12 @@ class MeterQuery
                     unitType
                     resource {
                       id
-                      nameNonLocalized
+                      name
                     }
                     numberOfTariffs
                     place
+                    accountNumber
+                    number
                 }
             }
         GRAPHQL;

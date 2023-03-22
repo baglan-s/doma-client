@@ -38,7 +38,7 @@ class UserQuery
         GRAPHQL;
     }
 
-    public static function getAllResidentsQuery()
+    public static function allResidentsQuery()
     {
         return <<<'GRAPHQL'
             query ($where: ResidentWhereInput) {
