@@ -16,7 +16,8 @@ class MeterReadingsQuery
                     value3
                     value4
                     source {
-                      nameNonLocalized
+                      id
+                      name
                     }
                     meter {
                       id

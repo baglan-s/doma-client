@@ -20,7 +20,7 @@ class UserQuery
         GRAPHQL;
     }
 
-    public static function getAllUsersQuery()
+    public static function allUsersQuery()
     {
         return <<<'GRAPHQL'
             query ($where: UserWhereInput) {
