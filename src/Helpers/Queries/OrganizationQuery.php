@@ -23,8 +23,8 @@ class OrganizationQuery
     public static function allContactsQuery()
     {
         return <<<'GRAPHQL'
-            query () {
-                allContacts () {
+            query ($where: ContactWhereInput) {
+                allContacts (where: $where) {
                     id
                     name
                     phone
