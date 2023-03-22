@@ -4,7 +4,7 @@ namespace BaglanS\Doma\Helpers\Queries;
 
 class OrganizationQuery
 {
-    public static function getAllOrganizationsQuery()
+    public static function allOrganizationsQuery()
     {
         return <<<'GRAPHQL'
             query ($where: OrganizationWhereInput) {
@@ -20,7 +20,7 @@ class OrganizationQuery
         GRAPHQL;
     }
 
-    public static function getAllContactsQuery()
+    public static function allContactsQuery()
     {
         return <<<'GRAPHQL'
             query () {

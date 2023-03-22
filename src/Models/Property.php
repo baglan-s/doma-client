@@ -14,7 +14,7 @@ class Property extends Model
 
     public function getProperties(array $filter = [])
     {
-        $response = $this->sendQuery(PropertyQuery::getAllPropertiesQuery(), $filter);
+        $response = $this->sendQuery(PropertyQuery::allPropertiesQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }

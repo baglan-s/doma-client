@@ -4,7 +4,7 @@ namespace BaglanS\Doma\Helpers\Queries;
 
 class PropertyQuery
 {
-    public static function getAllPropertiesQuery()
+    public static function allPropertiesQuery()
     {
         return <<<'GRAPHQL'
             query ($where: PropertyWhereInput) {

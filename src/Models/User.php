@@ -14,7 +14,7 @@ class User extends Model
 
     public function getUsers(array $filter = [])
     {
-        $response = $this->sendQuery(UserQuery::getAllUsersQuery(), $filter);
+        $response = $this->sendQuery(UserQuery::allUsersQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
