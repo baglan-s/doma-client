@@ -218,4 +218,31 @@ class Client
             $this->setRefreshToken($tokenData['refresh_token']);
         }
     }
+    
+    /**
+     * @param string $refreshToken
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function refreshToken(string $refreshToken): array
+    {
+        try {
+            $response = $this->httpClient->post($this->config->getOidcTokenEndpoint(), [
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded',
+                    'Authorization' => $this->getAuthorizationBasicToken()
+                ],
+                'form_params' => [
+                    'grant_type' => 'refresh_token',
+                    'refresh_token' => $refreshToken,
+                ]
+            ]);
+
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }
