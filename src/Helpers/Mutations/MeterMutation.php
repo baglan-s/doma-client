@@ -10,11 +10,6 @@ class MeterMutation
             mutation updateMeter ($id: ID!, $data: MeterUpdateInput!) {
                 obj: updateMeter (id: $id, data: $data) {
                     id
-                    property
-                    number
-                    numberOfTariffs
-                    resource
-                    isAutomatic
                 }
             }
         GRAPHQL;
