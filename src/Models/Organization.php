@@ -28,7 +28,7 @@ class Organization extends Model
     
     public function getOrganizationEmployees(array $filter = [])
     {
-        $response = $this->sendQuery(OrganizationEmployeesQuery::allOrganizationEmployeesQuery(), $filter);
+        $response = $this->sendQuery(OrganizationQuery::allOrganizationEmployeesQuery(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
