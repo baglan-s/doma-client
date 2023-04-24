@@ -72,4 +72,60 @@ class OrganizationQuery
             }
         GRAPHQL;
     }
+    
+    public static function allB2BAppsQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: B2BAppWhereInput) {
+                allB2BApps (where: $where) {
+                    id
+                    name
+                    logo {
+                      id
+                      path
+                      filename
+                      originalFilename
+                      publicUrl
+                    }
+                    shortDescription
+                    detailedDescription
+                    isHidden
+                    isGlobal
+                    contextDefaultStatus
+                    category
+                    label
+                    gallery
+                    price
+                }
+            }
+        GRAPHQL;
+    }
+
+    public static function allB2CAppsQuery()
+    {
+        return <<<'GRAPHQL'
+            query ($where: B2CAppWhereInput) {
+                allB2CApps (where: $where) {
+                    id
+                    name
+                    logo {
+                      id
+                      path
+                      filename
+                      originalFilename
+                      publicUrl
+                    }
+                    shortDescription
+                    detailedDescription
+                    isHidden
+                    isGlobal
+                    contextDefaultStatus
+                    category
+                    label
+                    gallery
+                    price
+                }
+            }
+        GRAPHQL;
+    }
 }
