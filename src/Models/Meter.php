@@ -12,4 +12,11 @@ class Meter extends Model
 
         return json_decode($response->getBody()->getContents(), true);
     }
+    
+    public function updateMeter(array $filter = [])
+    {
+        $response = $this->sendQuery(MeterMutation::updateMeter(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }
