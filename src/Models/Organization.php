@@ -25,4 +25,25 @@ class Organization extends Model
 
         return json_decode($response->getBody()->getContents(), true);
     }
+    
+    public function getOrganizationEmployees(array $filter = [])
+    {
+        $response = $this->sendQuery(OrganizationQuery::allOrganizationEmployeesQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+    
+    public function getAllB2BApps(array $filter = [])
+    {
+        $response = $this->sendQuery(OrganizationQuery::allB2BAppsQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getAllB2CApps(array $filter = [])
+    {
+        $response = $this->sendQuery(OrganizationQuery::allB2CAppsQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }
