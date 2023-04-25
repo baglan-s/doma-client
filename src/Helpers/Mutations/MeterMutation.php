@@ -8,7 +8,7 @@ class MeterMutation
     {
         return <<<GRAPHQL
             mutation updateMeter ($id: ID!, $data: MeterUpdateInput!) {
-                obj: updateMeter (id: $id, data: $data) {
+                updateMeter (id: $id, data: $data) {
                     id
                 }
             }
