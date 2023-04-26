@@ -80,21 +80,6 @@ class OrganizationQuery
                 allB2BApps (where: $where) {
                     id
                     name
-                    logo {
-                      id
-                      path
-                      filename
-                      originalFilename
-                      publicUrl
-                    }
-                    shortDescription
-                    isHidden
-                    isGlobal
-                    contextDefaultStatus
-                    category
-                    label
-                    gallery
-                    price
                 }
             }
         GRAPHQL;
@@ -107,21 +92,6 @@ class OrganizationQuery
                 allB2CApps (where: $where) {
                     id
                     name
-                    logo {
-                      id
-                      path
-                      filename
-                      originalFilename
-                      publicUrl
-                    }
-                    shortDescription
-                    isHidden
-                    isGlobal
-                    contextDefaultStatus
-                    category
-                    label
-                    gallery
-                    price
                 }
             }
         GRAPHQL;
