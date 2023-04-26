@@ -6,7 +6,7 @@ class MeterMutation
 {
     public static function updateMeter()
     {
-        return <<<GRAPHQL
+        return <<<'GRAPHQL'
             mutation updateMeter ($id: ID!, $data: MeterUpdateInput!) {
                 updateMeter (id: $id, data: $data) {
                     id
