@@ -88,7 +88,6 @@ class OrganizationQuery
                       publicUrl
                     }
                     shortDescription
-                    detailedDescription
                     isHidden
                     isGlobal
                     contextDefaultStatus
@@ -116,7 +115,6 @@ class OrganizationQuery
                       publicUrl
                     }
                     shortDescription
-                    detailedDescription
                     isHidden
                     isGlobal
                     contextDefaultStatus
