@@ -6,7 +6,7 @@ class TicketMutation
 {
     public static function createTicket()
     {
-        return <<<GRAPHQL
+        return <<<'GRAPHQL'
             mutation createTicket(
                $data: TicketCreateInput
             ) {

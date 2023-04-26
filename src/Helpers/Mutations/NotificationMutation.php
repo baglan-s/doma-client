@@ -6,7 +6,7 @@ class NotificationMutation
 {
     public static function sendAppPushMessage()
     {
-        return <<<GRAPHQL
+        return <<<'GRAPHQL'
             mutation sendAppPushMessage ($data: SendAppPushMessageInput!) {
                 sendAppPushMessage (data: $data) {
                     id
