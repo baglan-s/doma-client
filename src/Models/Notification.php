@@ -8,7 +8,7 @@ class Notification extends Model
 {
     public function sendAppPushMessage(array $data = [])
     {
-        $response = $this->sendQuery(NotificationMutation::sendAppPushMessage(), $data);
+        $response = $this->sendQuery(NotificationMutation::sendB2CAppPushMessage(), $data);
 
         return json_decode($response->getBody()->getContents(), true);
     }
