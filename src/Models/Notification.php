@@ -6,7 +6,7 @@ use BaglanS\Doma\Helpers\Mutations\NotificationMutation;
 
 class Notification extends Model
 {
-    public function sendAppPushMessage(array $data = [])
+    public function sendB2CAppPushMessage(array $data = [])
     {
         $response = $this->sendQuery(NotificationMutation::sendB2CAppPushMessage(), $data);
 
