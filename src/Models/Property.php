@@ -9,7 +9,11 @@ class Property extends Model
 {
     public function getProperty($propertyId)
     {
-        return $this->getProperties(['id' => $propertyId]);
+        return $this->getProperties([
+            'where' => [
+                ['id' => $propertyId]
+            ]
+        ]);
     }
 
     public function getProperties(array $filter = [])

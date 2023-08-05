@@ -9,7 +9,11 @@ class Organization extends Model
 {
     public function getOrganization($organizationId)
     {
-        return $this->getOrganizations(['id' => $organizationId]);
+        return $this->getOrganizations([
+            'where' => [
+                ['id' => $organizationId]
+            ]
+        ]);
     }
 
     public function getOrganizations(array $filter = [])
