@@ -11,7 +11,7 @@ class Organization extends Model
     {
         return $this->getOrganizations([
             'where' => [
-                ['id' => $organizationId]
+                'id' => $organizationId
             ]
         ]);
     }

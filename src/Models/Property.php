@@ -11,7 +11,7 @@ class Property extends Model
     {
         return $this->getProperties([
             'where' => [
-                ['id' => $propertyId]
+                'id' => $propertyId
             ]
         ]);
     }
