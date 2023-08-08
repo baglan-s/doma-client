@@ -32,7 +32,7 @@ class Config
     /**
      * @var string
      */
-    protected $domain = 'https://condo.d.doma.ai';
+    protected $domain = 'https://v1.doma.ai';
 
     /**
      * @param string $clientId
