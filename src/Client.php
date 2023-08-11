@@ -65,7 +65,7 @@ class Client
     /**
      * @return string
      */
-    public function getAccessToken(): string
+    public function getAccessToken(): string | null
     {
         return $this->accessToken;
     }
@@ -73,7 +73,7 @@ class Client
     /**
      * @return string
      */
-    public function getRefreshToken(): string
+    public function getRefreshToken(): string | null
     {
         return $this->refreshToken;
     }
@@ -81,7 +81,7 @@ class Client
     /**
      * @return string
      */
-    public function getIdToken(): string
+    public function getIdToken(): string | null
     {
         return $this->idToken;
     }
