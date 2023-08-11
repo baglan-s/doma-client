@@ -30,8 +30,14 @@ class Model
 
     public function sendQuery($query, $variables = [], $withoutToken = false)
     {
+        $headers = [];
+
+        if (!$withoutToken) {
+            $headers = ['Authorization' => 'Bearer ' . $this->getClient()->getAccessToken()];
+        }
+
         return $this->getHttpClient()->post('', [
-            'headers' => ['Authorization' => 'Bearer ' . !$withoutToken ? $this->getClient()->getAccessToken() : ''],
+            'headers' => $headers,
             'json' => ['query' => $query, 'variables' => $variables]
         ]);
     }
