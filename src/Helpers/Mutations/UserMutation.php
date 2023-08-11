@@ -7,7 +7,7 @@ class UserMutation
     public static function authenticateUserWithEmailAndPassword()
     {
         return <<<'GRAPHQL'
-            mutation ($email, $password) {
+            mutation ($email: String, $password: String) {
                 authenticateUserWithPassword(email: $email, password: $password) {
                     token
                     item {
