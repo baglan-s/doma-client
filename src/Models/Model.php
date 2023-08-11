@@ -28,10 +28,10 @@ class Model
         return $this->getClient()->getHttpClient();
     }
 
-    public function sendQuery($query, $variables = [])
+    public function sendQuery($query, $variables = [], $withoutToken = false)
     {
         return $this->getHttpClient()->post('', [
-            'headers' => ['Authorization' => 'Bearer ' . $this->getClient()->getAccessToken()],
+            'headers' => ['Authorization' => 'Bearer ' . !$withoutToken ? $this->getClient()->getAccessToken() : ''],
             'json' => ['query' => $query, 'variables' => $variables]
         ]);
     }

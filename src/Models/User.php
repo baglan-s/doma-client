@@ -31,7 +31,7 @@ class User extends Model
     {
         $response = $this->sendQuery(UserMutation::authenticateUserWithEmailAndPassword(), [
             'email' => $email, 'password' => $password
-        ]);
+        ], true);
 
         return json_decode($response->getBody()->getContents(), true);
     }
