@@ -35,6 +35,7 @@ class OrganizationQuery
                     }
                     unitName
                     unitType
+                    isVerified
                 }
             }
         GRAPHQL;
