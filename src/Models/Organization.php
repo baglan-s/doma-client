@@ -4,6 +4,7 @@ namespace BaglanS\Doma\Models;
 
 use BaglanS\Doma\Models\Model;
 use BaglanS\Doma\Helpers\Queries\OrganizationQuery;
+use BaglanS\Doma\Helpers\Mutations\OrganizationMutation;
 
 class Organization extends Model
 {
@@ -47,6 +48,13 @@ class Organization extends Model
     public function getAllB2CApps(array $filter = [])
     {
         $response = $this->sendQuery(OrganizationQuery::allB2CAppsQuery(), $filter);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function updateContact(array $filter = [])
+    {
+        $response = $this->sendQuery(OrganizationMutation::updateContact(), $filter);
 
         return json_decode($response->getBody()->getContents(), true);
     }
