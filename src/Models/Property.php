@@ -24,6 +24,13 @@ class Property extends Model
         return json_decode($response->getBody()->getContents(), true);
     }
 
+    public function updateB2CAppProperty(array $data)
+    {
+        $response = $this->sendQuery(AppMutation::updateB2CAppProperty(), $data);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
     public function createB2CAppProperty(array $data)
     {
         $response = $this->sendQuery(AppMutation::createB2CAppProperty(), $data);
