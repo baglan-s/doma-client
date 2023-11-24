@@ -20,6 +20,22 @@ class AppMutation
         GRAPHQL;
     }
 
+    public static function updateB2CAppProperty()
+    {
+        return <<<'GRAPHQL'
+            mutation ($id: ID!, $data: B2CAppPropertyUpdateInput!) {
+                updateB2CAppProperty(id: $id, data: $data) {
+                    id
+                    address
+                    app {
+                        id
+                        name
+                    }
+                }
+            }
+        GRAPHQL;
+    }
+
     public static function deleteB2CAppProperty()
     {
         return <<<'GRAPHQL'
