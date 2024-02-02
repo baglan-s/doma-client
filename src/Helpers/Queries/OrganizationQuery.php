@@ -32,6 +32,24 @@ class OrganizationQuery
                     property {
                       id
                       address
+                      unitsCount
+                      map {
+                        sections {
+                            id
+                            index
+                            name
+                            floors {
+                                id
+                                name
+                                units {
+                                    id
+                                    name
+                                    label
+                                    unitType
+                                }
+                            }
+                        }
+                      }
                     }
                     unitName
                     unitType
