@@ -23,6 +23,16 @@ class PropertyQuery
                     area
                     createdAt
                     updatedAt
+                    addressMeta {
+                        data {
+                            fias_id
+                            kladr_id
+                            country
+                            city
+                            region
+                            street
+                        }
+                    }
                     organization {
                         id
                         name
