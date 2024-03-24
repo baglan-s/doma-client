@@ -2,7 +2,7 @@
 
 namespace BaglanS\Doma\Helpers\Queries;
 
-class MeterReadingsQuery
+class MeterReadingQuery
 {
     public static function allMeterReadingsQuery()
     {
