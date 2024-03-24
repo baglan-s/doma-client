@@ -14,4 +14,15 @@ class MeterMutation
             }
         GRAPHQL;
     }
+
+    public static function createMeter()
+    {
+        return <<<'GRAPHQL'
+            mutation createMeter ($data: MeterCreateInput!) {
+                createMeter (data: $data) {
+                    id
+                }
+            }
+        GRAPHQL;
+    }
 }
