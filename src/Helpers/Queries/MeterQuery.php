@@ -7,7 +7,7 @@ class MeterQuery
     public static function allMetersQuery()
     {
         return <<<'GRAPHQL'
-            query ($where: OrganizationWhereInput) {
+            query ($where: MeterWhereInput) {
                 allMeters (where: $where) {
                     id
                     property {
