@@ -7,7 +7,7 @@ class MeterReadingQuery
     public static function allMeterReadingsQuery()
     {
         return <<<'GRAPHQL'
-            query ($where: OrganizationWhereInput) {
+            query ($where: MeterReadingWhereInput) {
                 allMeterReadings (where: $where) {
                     id
                     date
