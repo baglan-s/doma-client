@@ -11,6 +11,7 @@ class MeterQuery
                 allMeters (where: $where) {
                     id
                     property {
+                        id
                         address
                     }
                     unitName
