@@ -13,6 +13,16 @@ class MeterQuery
                     property {
                         id
                         address
+                        addressMeta {
+                            data {
+                                fias_id
+                                kladr_id
+                                country
+                                city
+                                region
+                                street
+                            }
+                        }
                     }
                     unitName
                     unitType
