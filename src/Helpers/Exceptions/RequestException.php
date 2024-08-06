@@ -21,7 +21,6 @@ class RequestException extends Exception
         foreach ($requestContainer as $transaction) {
             $messages['data'][] = [
                 'request' => [
-                    'url' => $transaction['request']?->getUrl(),
                     'method' => $transaction['request']?->getMethod(),
                     'body' => $transaction['request']?->getBody(),
                 ],
