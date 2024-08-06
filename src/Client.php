@@ -3,7 +3,10 @@
 namespace BaglanS\Doma;
 
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 use BaglanS\Doma\Config;
+use BaglanS\Doma\Helpers\Exceptions\RequestException;
 use BaglanS\Doma\Helpers\Queries\UserQuery;
 
 class Client
@@ -34,14 +37,24 @@ class Client
     protected $idToken;
 
     /**
+     * @var array
+     */
+    protected $requestContainer = [];
+
+    /**
      * @param Config $config
      */
     public function __construct(Config $config)
     {
+        $stack = HandlerStack::create();
+        $stack->push(
+            Middleware::history($this->requestContainer)
+        );
         $this->config = $config;
         $this->httpClient = new HttpClient([
             'base_uri' => $this->config->getApiEndpoint(),
-            'headers' => ['Content-Type' => 'application/json']
+            'headers' => ['Content-Type' => 'application/json'],
+            'handler' => $stack
         ]);
         $this->config->setState(bin2hex(random_bytes(5)));
     }
@@ -86,6 +99,11 @@ class Client
         return $this->idToken;
     }
 
+    public function getRequestContainer(): array
+    {
+        return $this->requestContainer;
+    }
+
     /**
      * @return string
      */
@@ -123,7 +141,7 @@ class Client
             ]);
 
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            throw new RequestException($this->getRequestContainer(), $e->getMessage());
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -194,7 +212,7 @@ class Client
             ]);
 
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            throw new RequestException($this->getRequestContainer(), $e->getMessage());
         }
 
         return json_decode($response->getBody()->getContents(), true);
@@ -240,7 +258,7 @@ class Client
             ]);
 
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            throw new RequestException($this->getRequestContainer(), $e->getMessage());
         }
 
         return json_decode($response->getBody()->getContents(), true);
