@@ -22,12 +22,12 @@ class RequestException extends Exception
             $messages['data'][] = [
                 'request' => [
                     'method' => $transaction['request']?->getMethod(),
-                    'body' => $transaction['request']?->getBody(),
+                    'body' => $transaction['request']?->getBody()->getContents(),
                 ],
                 'response' => [
                     'code' => $transaction['response']?->getStatusCode(),
                     'heaeders' => $transaction['response']?->getHeaders(),
-                    'body' => $transaction['response']?->getBody(),
+                    'body' => $transaction['response']?->getBody()->getContents(),
                 ]
             ];
         } 
