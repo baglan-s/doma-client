@@ -18,18 +18,37 @@ class RequestException extends Exception
             'data' => []
         ];
 
-        foreach ($requestContainer as $transaction) {
+        if (isset($requestContainer[0])) {
             $messages['data'][] = [
                 'request' => [
-                    'method' => $transaction['request']?->getMethod(),
-                    'body' => $transaction['request']?->getBody()->getContents(),
+                    'method' => $requestContainer[0]['request']?->getMethod(),
+                    'body' => $requestContainer[0]['request']?->getBody()->getContents(),
                 ],
                 'response' => [
-                    'code' => $transaction['response']?->getStatusCode(),
-                    'heaeders' => $transaction['response']?->getHeaders(),
-                    'body' => $transaction['response']?->getBody()->getContents(),
+                    'code' => $requestContainer[0]['response']?->getStatusCode(),
+                    'heaeders' => $requestContainer[0]['response']?->getHeaders(),
+                    'body' => $requestContainer[0]['response']?->getBody()->getContents(),
                 ]
             ];
+        }
+
+        if (isset($requestContainer[count($requestContainer) - 1])) {
+            $container = $requestContainer[count($requestContainer) - 1];
+            $messages['data'][] = [
+                'request' => [
+                    'method' => $container['request']?->getMethod(),
+                    'body' => $container['request']?->getBody()->getContents(),
+                ],
+                'response' => [
+                    'code' => $container['response']?->getStatusCode(),
+                    'heaeders' => $container['response']?->getHeaders(),
+                    'body' => $container['response']?->getBody()->getContents(),
+                ]
+            ];
+        }
+
+        foreach ($requestContainer as $transaction) {
+            
         } 
 
         return json_encode($messages);
