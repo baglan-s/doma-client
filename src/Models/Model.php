@@ -3,6 +3,8 @@
 namespace BaglanS\Doma\Models;
 
 use BaglanS\Doma\Service;
+use BaglanS\Doma\Helpers\Exceptions\RequestException;
+use \Exception;
 
 class Model
 {
@@ -36,9 +38,13 @@ class Model
             $headers = ['Authorization' => 'Bearer ' . $this->getClient()->getAccessToken()];
         }
 
-        return $this->getHttpClient()->post('', [
-            'headers' => $headers,
-            'json' => ['query' => $query, 'variables' => $variables]
-        ]);
+        try {
+            return $this->getHttpClient()->post('', [
+                'headers' => $headers,
+                'json' => ['query' => $query, 'variables' => $variables]
+            ]);
+        } catch (Exception $e) {
+            throw new RequestException($this->getClient()->getRequestContainer(), $e->getMessage());
+        }
     }
 }
