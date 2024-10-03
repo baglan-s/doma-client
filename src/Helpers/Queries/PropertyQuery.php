@@ -60,6 +60,24 @@ class PropertyQuery
                                 }
                             }
                         }
+                        parking {
+                            id
+                            type
+                            index
+                            name
+                            floors {
+                                id
+                                type
+                                name
+                                units {
+                                    id
+                                    type
+                                    name
+                                    label
+                                    unitType
+                                }
+                            }
+                        }
                     }
                 }
             }
